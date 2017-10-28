@@ -822,7 +822,7 @@ function dropEdge(h, p) {
 function generateCoast(params) {
     var mesh = generateGoodMesh(params.npts, params.extent);
     var h = add(
-            slope(mesh, randomVector(4)),
+//            slope(mesh, randomVector(4)),
             cone(mesh, runif(-1, -1)),
             mountains(mesh, 50)
             );
@@ -831,7 +831,7 @@ function generateCoast(params) {
     }
     h = peaky(h);
     h = doErosion(h, runif(0, 0.1), 5);
-    h = setSeaLevel(h, runif(0.2, 0.6));
+    h = setSeaLevel(h, 0.5);//runif(0.5, 0.9));;//0.2, 0.6));
     h = fillSinks(h);
     h = cleanCoast(h, 3);
     return h;
@@ -1061,13 +1061,13 @@ function doMap(svg, params) {
 var defaultParams = {
     extent: defaultExtent,
     generator: generateCoast,
-    npts: 16384,
+    npts: 4096, // 16384,
     ncities: 15,
     nterrs: 5,
     fontsizes: {
-        region: 40,
-        city: 25,
-        town: 20
+        region: 0,
+        city: 0,
+        town: 0
     }
 }
 
