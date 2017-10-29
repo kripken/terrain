@@ -1036,9 +1036,9 @@ function drawMap(svg, render) {
     render.borders = getBorders(render);
     drawPaths(svg, 'river', render.rivers);
     drawPaths(svg, 'coast', render.coasts);
-    drawPaths(svg, 'border', render.borders);
+    //drawPaths(svg, 'border', render.borders);
     visualizeSlopes(svg, render);
-    visualizeCities(svg, render);
+    //visualizeCities(svg, render);
     drawLabels(svg, render);
 }
 
@@ -1061,8 +1061,8 @@ function doMap(svg, params) {
 var defaultParams = {
     extent: defaultExtent,
     generator: generateCoast,
-    npts: 4096, // 16384,
-    ncities: 15,
+    npts: 20000,
+    ncities: 30,
     nterrs: 5,
     fontsizes: {
         region: 0,
